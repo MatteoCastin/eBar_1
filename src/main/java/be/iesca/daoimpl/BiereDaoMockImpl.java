@@ -1,9 +1,6 @@
 package be.iesca.daoimpl;
 
-import java.util.Comparator;
-import java.util.List;
-import java.util.Map;
-import java.util.TreeMap;
+import java.util.*;
 
 import be.iesca.dao.BiereDao;
 import be.iesca.domaine.Biere;
@@ -28,20 +25,13 @@ public class BiereDaoMockImpl implements BiereDao {
 	}
 
 	@Override
-	public List<Biere> listerBieres() {
-		return mapBieres.values().stream().toList();
-	}
+	public List<Biere> listerBieres() { return new ArrayList<>(mapBieres.values());}
 
 	@Override
-	public boolean supprimerBiere(String nom) {
-		return !(mapBieres.remove(nom) == null);
-	}
+	public boolean supprimerBiere(String nom) { return !(mapBieres.remove(nom) == null);}
 
 	@Override
-	public boolean modifierBiere(Biere biere) {
-		// TODO Auto-generated method stub
-		return false;
-	}
+	public boolean modifierBiere(Biere biere) { return !(mapBieres.replace(biere.getNom(), biere) == null);	}
 	
 	private class ComparateurBieres implements Comparator<String> {
 		@Override

@@ -1,10 +1,12 @@
-package be.helha.metier;
+package be.iesca.usecaseimpl;
 
+import be.iesca.dao.BiereDao;
 import be.iesca.domaine.Bundle;
+import be.iesca.usecase.GestionBieres;
 
-public class GestionBieresImpl implements GestionBieres{
+public class GestionBieresImpl implements GestionBieres {
 	
-	/*BiereDao biereDao;*/
+	BiereDao biereDao;
 
 	@Override
 	public void ajouterBiere(Bundle bundle) {

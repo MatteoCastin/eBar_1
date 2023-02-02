@@ -14,6 +14,6 @@ public class DaoFactory {
 	}
 
 	public BiereDaoMockImpl getBiereDao(){
-		return null;
+		return new BiereDaoMockImpl();
 	}
 }

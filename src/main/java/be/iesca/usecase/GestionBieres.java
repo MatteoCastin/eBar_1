@@ -1,4 +1,4 @@
-package be.helha.metier;
+package be.iesca.usecase;
 
 import be.iesca.domaine.Bundle;
 
