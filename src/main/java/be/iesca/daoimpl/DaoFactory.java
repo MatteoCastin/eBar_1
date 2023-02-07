@@ -6,7 +6,7 @@ public class DaoFactory {
 
 	private DaoFactory(){}
 
-	public DaoFactory getInstance() {
+	public static DaoFactory getInstance() {
 		if (single_daoFactory == null)
 			single_daoFactory = new DaoFactory();
 
