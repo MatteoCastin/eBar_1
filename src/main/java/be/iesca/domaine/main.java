@@ -1,23 +1,20 @@
 package be.iesca.domaine;
 
-import be.iesca.daoimpl.BiereDaoMockImpl;
-import be.iesca.usecase.GestionBieres;
-import be.iesca.usecaseimpl.GestionBieresImpl;
+import be.iesca.dao.BiereDao;
+import be.iesca.daoimpl.DaoFactory;
 
-import java.util.HashMap;
-import java.util.List;
-import java.util.Map;
+import java.sql.SQLException;
 
 public class main {
-    public static void main(String[] args) {
-        Bundle bundle = new Bundle();
+    public static void main(String[] args){
         Biere biere1 = new Biere("Duvel Moortgat","blonde", "Duvel Blonde", "Blonde");
         Biere biere2 = new Biere("Jup", "Pils", "PilsJup", "pppppppp");
-
-        GestionBieres gestionBieres = new GestionBieresImpl();
-
-        bundle.put(biere1.getNom(), biere1);
-        gestionBieres.ajouterBiere(bundle);
+        BiereDao biereDao = DaoFactory.getInstance().getBiereDao();
+        try{
+            biereDao.ajouterBiere(biere1);
+        }catch (SQLException e) {
+            throw new RuntimeException(e);
+        }
 
     }
 }
